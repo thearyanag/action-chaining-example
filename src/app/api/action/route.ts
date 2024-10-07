@@ -28,6 +28,7 @@ export async function GET(req: NextRequest) {
     links: {
       actions: [
         {
+          type: "transaction",
           label: "Submit A", // button text
           href: "/api/action?amount={amount}", // api endpoint
           parameters: [
@@ -84,6 +85,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         await createPostResponse({
           fields: {
+            type: "transaction",
             links: {
               next: getCompletedAction(stage),
             },
@@ -99,6 +101,7 @@ export async function POST(req: NextRequest) {
 
     const payload = await createPostResponse({
       fields: {
+        type: "transaction",
         links: {
           // any condition to determine the next action
           next: amount === "1" ? getNextAction("b") : getNextAction("c"),

@@ -26,6 +26,7 @@ export const getNextAction = (stage: string): NextActionLink => {
       links: {
         actions: [
           {
+            type: "transaction",
             label: `Submit ${stage}`, // button text
             href: `/api/action?amount={amount}&stage=${stage}`, // api endpoint
             parameters: [
